@@ -1,0 +1,34 @@
+{
+	"name": "@deep-sight/dp-iconfont",
+	"version": "1.0.2",
+	"description": "iconfont捷径",
+	"main": "dist/dp-iconfont.icon.umd.js",
+	"types": "dist/src/Icon.d.ts",
+	"scripts": {
+		"build:index": "cross-env BUILD_ENTRY=src/index.ts vite build",
+		"build:icon": "cross-env BUILD_ENTRY=src/Icon.tsx vite build",
+		"build": "npm run build:index && npm run build:icon"
+	},
+	"author": "deep-sight",
+	"license": "MIT",
+	"peerDependencies": {
+		"react": "^18.2.0",
+		"react-dom": "18.2.0",
+		"request": "^2.88.2"
+	},
+	"devDependencies": {
+		"@types/node": "^22.15.3",
+		"@types/react": "^18.2.0",
+		"cross-env": "^7.0.3",
+		"less": "^4.1.2",
+		"rollup-plugin-copy": "^3.5.0",
+		"vite": "^5.2.11",
+		"vite-plugin-dts": "^4.5.3"
+	},
+	"bin": {
+		"get-iconfont": "get-iconfont.js"
+	},
+	"files": [
+		"dist"
+	]
+}

@@ -1,0 +1,1 @@
+require('./fonts/iconfont-main');
