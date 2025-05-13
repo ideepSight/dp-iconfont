@@ -1,6 +1,6 @@
 {
 	"name": "@deep-sight/dp-iconfont",
-	"version": "1.0.3",
+	"version": "1.0.4",
 	"description": "Iconfont React组件化、快捷更新",
 	"main": "dist/dp-iconfont.icon.umd.js",
 	"types": "dist/src/Icon.d.ts",
