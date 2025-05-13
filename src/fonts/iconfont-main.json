@@ -6,6 +6,90 @@
   "description": "",
   "glyphs": [
     {
+      "icon_id": "3239730",
+      "name": "工具",
+      "font_class": "gongju",
+      "unicode": "e61a",
+      "unicode_decimal": 58906
+    },
+    {
+      "icon_id": "25222057",
+      "name": "变量",
+      "font_class": "bianliang",
+      "unicode": "e65f",
+      "unicode_decimal": 58975
+    },
+    {
+      "icon_id": "43160798",
+      "name": "environment_variable",
+      "font_class": "huanjingbianliang",
+      "unicode": "e7bf",
+      "unicode_decimal": 59327
+    },
+    {
+      "icon_id": "43444336",
+      "name": "火箭",
+      "font_class": "huojian",
+      "unicode": "e7f2",
+      "unicode_decimal": 59378
+    },
+    {
+      "icon_id": "4111811",
+      "name": "代码",
+      "font_class": "code",
+      "unicode": "e617",
+      "unicode_decimal": 58903
+    },
+    {
+      "icon_id": "5203246",
+      "name": "多循环",
+      "font_class": "duoxunhuan",
+      "unicode": "e620",
+      "unicode_decimal": 58912
+    },
+    {
+      "icon_id": "10570838",
+      "name": "sharpicons_warning",
+      "font_class": "sharpicons_warning",
+      "unicode": "e7d1",
+      "unicode_decimal": 59345
+    },
+    {
+      "icon_id": "10570874",
+      "name": "sharpicons_metre",
+      "font_class": "sharpicons_metre",
+      "unicode": "e7d7",
+      "unicode_decimal": 59351
+    },
+    {
+      "icon_id": "11399550",
+      "name": "分支节点",
+      "font_class": "fenzhijiedian",
+      "unicode": "e633",
+      "unicode_decimal": 58931
+    },
+    {
+      "icon_id": "14682841",
+      "name": "终点",
+      "font_class": "zhongdian",
+      "unicode": "e63d",
+      "unicode_decimal": 58941
+    },
+    {
+      "icon_id": "17385084",
+      "name": "home",
+      "font_class": "home",
+      "unicode": "e618",
+      "unicode_decimal": 58904
+    },
+    {
+      "icon_id": "38662321",
+      "name": "选择终点",
+      "font_class": "xuanzezhongdian",
+      "unicode": "e78a",
+      "unicode_decimal": 59274
+    },
+    {
       "icon_id": "8884399",
       "name": "喷绘分离",
       "font_class": "penhuifenli",

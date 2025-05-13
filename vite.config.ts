@@ -42,8 +42,8 @@ export default defineConfig(({ mode }) => {
 			copy({
 				targets: [
 					{
-						src: 'src/fonts/*',
-						dest: 'dist/fonts'
+						src: ['src/fonts/*', '!src/fonts/iconfont-main-type.ts'],
+						dest: 'dist/fonts',
 					},
 					{
 						src: 'src/Icon.less',

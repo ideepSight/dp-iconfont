@@ -1,8 +1,8 @@
 import React, { CSSProperties } from 'react';
-import { IconType } from './fonts/iconfont-main-type';
+import { IconType as IconTypeMain } from './fonts/iconfont-main-type';
 
 type SelfProps = {
-	name: IconType;
+	name: IconTypeMain;
 	symbol?: boolean; // 默认是字体图标
 	style?: CSSProperties;
 	className?: string;
@@ -22,3 +22,5 @@ export const Icon: React.FC<SelfProps> = ({ name, className, symbol = false, sty
 		</span>
 	);
 };
+
+export type IconType = IconTypeMain;

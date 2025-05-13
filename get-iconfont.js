@@ -9,6 +9,7 @@
 const fs = require('fs');
 const request = require('request');
 const argvArr = process.argv;
+const updateIndex = argvArr.indexOf('--update');
 const mainIndex = argvArr.indexOf('--main');
 const logoIndex = argvArr.indexOf('--logo');
 if (mainIndex === -1 && logoIndex === -1) {
@@ -16,7 +17,11 @@ if (mainIndex === -1 && logoIndex === -1) {
 	console.error('示例：node get-iconfont.js --main font_2157480_z0zbmbq3lte --logo font_2157480_z0zbmbq3lte');
 	process.exit(0);
 }
-const basePath = __dirname + '/dist/fonts';
+let basePath = __dirname + '/dist/fonts';
+if (updateIndex !== -1) {
+	basePath = './src/fonts';
+}
+console.log(basePath, 'basePath');
 
 const createIconfont = (currentUrl, prefix) => {
 	const fontPath = 'http://at.alicdn.com/t/c/' + currentUrl;
@@ -26,7 +31,6 @@ const createIconfont = (currentUrl, prefix) => {
 	const promise = (ele) => {
 		return new Promise((resolve, reject) => {
 			const downloadPath = `${fontPath}${ele}`;
-			console.log(downloadPath, '<-downloadPath');
 			const options = {
 				method: 'GET',
 				url: downloadPath,
@@ -43,16 +47,27 @@ const createIconfont = (currentUrl, prefix) => {
 				if (ele === '.css') {
 					const reg = new RegExp(`//at.*?${currentUrl}`, 'g');
 					body = body.replace(reg, `../fonts/${prefix}`);
-					fs.writeFileSync(`${basePath}/${prefix}.css`, body);
+					const cssPath = `${basePath}/${prefix}.css`;
+					console.log(cssPath, '<-cssPath');
+					fs.writeFileSync(cssPath, body);
 				} else if (ele === '.json') {
-					fs.writeFileSync(`${basePath}/${prefix}.json`, body);
+					const jsonPath = `${basePath}/${prefix}.json`;
+					console.log(jsonPath, '<-jsonPath');
+					fs.writeFileSync(jsonPath, body);
 					const obj = JSON.parse(body);
 					const fontNames = obj.glyphs.map((ele) => `"${ele.font_class}"`);
 					const type = `export type IconType = ` + fontNames.join(' | ');
-					fs.writeFileSync(`${__dirname}/dist/src/fonts/${prefix}-type.d.ts`, type);
+
+					let typePath = `${__dirname}/dist/src/fonts/${prefix}-type.d.ts`;
+					if (updateIndex !== -1) {
+						typePath = `${basePath}/${prefix}-type.ts`;
+					}
+					console.log(typePath, '<-typePath');
+					fs.writeFileSync(typePath, type);
 				} else {
-					console.log(`${basePath}/${prefix}${ele}`, '<-downloadPathed');
-					fs.writeFileSync(`${basePath}/${prefix}${ele}`, body);
+					const downloadPath = `${basePath}/${prefix}${ele}`;
+					console.log(downloadPath, '<-downloadPathed');
+					fs.writeFileSync(downloadPath, body);
 				}
 				resolve(`iconfont${ele}下载更新成功`);
 			});
